@@ -111,6 +111,14 @@ Route::prefix('pengguna')->group(function() {
 
 Route::get('admin', 'ManagementUserController@index');
 
+// Route::get('/user1', [ManagementUserController::class, 'index']);
+
+Route::resource('/user1', ManagementUserController::class);
+
+Route::get('/home', function(){
+    return view('home');
+});
+
 //Home
 Route::get("/home", function() {
     return view('home');
