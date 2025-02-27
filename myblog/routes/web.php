@@ -109,18 +109,18 @@ Route::prefix('pengguna')->group(function() {
 //     });
 // ));
 
-Route::get('admin', 'ManagementUserController@index');
-
-// Route::get('/user1', [ManagementUserController::class, 'index']);
-
-Route::resource('/user1', ManagementUserController::class);
-
-Route::get('/home', function(){
-    return view('home');
-});
-
+// --------------------------Acara 5---------------------------//
+Use App\Http\Controllers\ManagementController;
+//Route::get('user', 'ManagementUserController::class');
+Route::get('/admin1', 'ManagementUserController@index');
 //Home
 Route::get("/home", function() {
     return view('home');
 });
 
+// Acara 7
+
+Route::group(['namescape' => 'Frontend'], function() 
+     { 
+        Route::resource('home', 'HomeController');
+     });
