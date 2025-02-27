@@ -1,37 +1,38 @@
 <?php
 
-namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManagementUserController;
 
-use illuminate\Http\Request;
+Route::get('/', function () {
+    return view('welcome');
+});
 
-class ManagementUserController extends Controller
-{
-    //return "Halo ini adalah method index, dalam controller ManagementUser.";
-    public function index(){
-        return "Halo ini nantinya akan digunakan untuk mengambil semua data user";
-    }
-    public function create()
-    {
-        return "method ini nantinya akan digunakan untuk menampilkan form untuk menambah data user";
-    }
-    public function store($request)
-    {
-        return "Method ini nantinya akan digunakan untuk menciptakan data user yang baru";
-    }
-    public function show($id)
-    {
-        return "Method ini nantinya akan digunakan untuk mengambil satu data user dengan id=" . $id;
-    }
-    public function edit($id)
-    {
-        return "Method ini nantinya akan digunakan untuk menampilkan form untuk mengubah data edit dengan id=" . $id;
-    }
-    public function update($request, $id)
-    {
-        return "Method ini nantinya akan digunakan untuk mengubah data user dengan id=" . $id;
-    }
-    public function destroy($id)
-    {
-        return "Method ini nantinya digunakan untuk menghapus data user dengan id=" . $id;
-    }
-}
+// Route::get('/foo', function(){
+//     return 'Hello World';
+// });
+
+// Route::get('/foo/{id}', function($id){
+//     return 'User ='.$id;
+// });
+
+// Route::get('/user', 'UserController@controller');
+
+// Route::redirect('/coba', '/sini');
+
+// Route::view('/welcome','welcome');
+
+// Route::get('/userss/{name?}', function($name=null){
+//     return $name;
+// });
+
+// Route::get('/users/{nama?}', function($nama = 'John'){
+//     return $nama;
+// });
+
+// Route::get('/user1', [ManagementUserController::class, 'index']);
+
+Route::resource('/user1', ManagementUserController::class);
+
+Route::get('/home', function(){
+    return view('home');
+});
